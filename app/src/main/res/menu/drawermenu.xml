@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tournee" android:title="Tournées" android:icon="@drawable/rounded_corner"/>
+    <item android:id="@+id/planing" android:title="Planing" android:icon="@drawable/table_settings"/>
+    <item android:id="@+id/trajectoire" android:title="Trajectoire" android:icon="@drawable/google_maps"/>
+    <item android:id="@+id/langue" android:title="Langue" android:icon="@drawable/settings">
+        <menu>
+            <item android:id="@+id/fr" android:title="Français"/>
+            <item android:id="@+id/ar" android:title="العربية" />
+        </menu>
+    </item>
+</menu>
