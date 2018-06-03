@@ -35,10 +35,9 @@
             android:background="@color/colorBlueGrayOp">
             <EditText
                 android:id="@+id/login"
-                android:drawableStart="@drawable/user"
-                android:drawableLeft="@drawable/user"
+                android:drawableStart="@drawable/person"
+                android:drawableLeft="@drawable/person"
                 android:hint="Login"
-
                 android:layout_marginTop="80dp"
                 android:padding="10dp"
                 android:layout_width="match_parent"

@@ -50,6 +50,7 @@
         <activity android:name=".SendCodeActivity"/>
         <activity android:name=".ForgetPassAtivity"/>
         <activity android:name=".Map"/>
+        <activity android:name=".DetailsTourneeActivity"/>
     </application>
 
 
