@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-                startActivity(new Intent(MainActivity.this, Map.class));
+                startActivity(new Intent(MainActivity.this, HelpActivity.class));
             }
             });
 

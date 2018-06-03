@@ -34,7 +34,7 @@
 
         </LinearLayout>
         <android.support.v7.widget.CardView
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="120dp">
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:weightSum="4">
+                android:weightSum="5">
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -83,6 +83,16 @@
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="match_parent"
+                        android:id="@+id/user_plan"
+                        android:src="@drawable/user"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
                         android:id="@+id/logout_plan"
                         android:src="@drawable/logout"/>
                 </LinearLayout>
@@ -99,8 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="-10dp"
-            android:id="@+id/draw_plan"
-            >
+            android:id="@+id/draw_plan">
             <android.support.design.widget.NavigationView
                 android:id="@+id/nav_view_plan"
                 android:layout_width="wrap_content"
@@ -111,19 +120,84 @@
                 android:paddingLeft="16dp"
                 android:layout_gravity="start">
             </android.support.design.widget.NavigationView>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:id="@+id/body_content"
-                android:layout_marginTop="20dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:id="@+id/texte"
-                    android:text="Planing!!!"/>
 
-            </LinearLayout>
+            <TableLayout
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#b0b0b0"
+                        android:padding="12dip"
+                        android:text="Tournée"
+                        android:textColor="#000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#b0b0b0"
+                        android:padding="12dip"
+                        android:text="Date d'affectation"
+                        android:textColor="#000" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#b0b0b0"
+                        android:padding="12dip"
+                        android:text="Date prévu de réalisation"
+                        android:textColor="#000" />
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="Tournee1"/>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="12-05-2018"/>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="12-06-2018"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="Tournee2"/>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="12-05-2018"/>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="12-06-2018"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="Tournee3"/>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="12-05-2018"/>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="12-06-2018"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="Tournee4"/>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="12-05-2018"/>
+                    <TextView
+                        android:padding="12dip"
+                        android:text="12-06-2018"/>
+                </TableRow>
+            </TableLayout>
         </android.support.v4.widget.DrawerLayout>
 
     </LinearLayout>

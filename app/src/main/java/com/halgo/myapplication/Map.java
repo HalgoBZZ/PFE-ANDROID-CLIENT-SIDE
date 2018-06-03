@@ -24,10 +24,11 @@ public class Map extends FragmentActivity implements OnMapReadyCallback {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.trajectoire);
+
         //fragment=(SupportMapFragment)findViewById(R.id.mapfragment);
         if (googleServicesAvailable())
         {
+            setContentView(R.layout.map);
             MapFragment mapFragment = (MapFragment) getFragmentManager()
                     .findFragmentById(R.id.mapfragment);
             mapFragment.getMapAsync(this);
