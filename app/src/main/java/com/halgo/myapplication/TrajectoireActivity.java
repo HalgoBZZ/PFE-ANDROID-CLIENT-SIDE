@@ -2,13 +2,20 @@ package com.halgo.myapplication;
 
 import android.Manifest;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -38,6 +45,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -83,7 +91,7 @@ public class TrajectoireActivity extends AppCompatActivity implements
         //get the spinner from the xml.
         dropdown = (Spinner)findViewById(R.id.spinner1);
         //create a list of items for the spinner.
-        String[] items = new String[]{"tour1", "tour2", "tour3"};
+        String[] items = new String[]{"Tournee1", "Tournee2", "Tournee3"};
         //create an adapter to describe how the items are displayed, adapters are used in several places in android.
         //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -206,6 +214,15 @@ public class TrajectoireActivity extends AppCompatActivity implements
             //adding mark example
             googleMap.addMarker(new MarkerOptions().position(new LatLng(36.806495,10.181532)).title("Hello there!!!!"));
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(36.806495,10.181532), 17.0f));
+            //Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.pdls);
+            //Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.pdl);
+            //Bitmap bitmap = ((BitmapDrawable)R.drawable.pdl).getBitmap();
+           // googleMap.addMarker(new MarkerOptions().position(new LatLng(36.805230,10.182551)).title("Ordre:1").icon(BitmapDescriptorFactory.fromResource(R.drawable.email)));
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(36.805230,10.182551)).title("Ordre:1"));
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(36.807034,10.178646)).title("Ordre:2"));
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(36.804904,10.175255)).title("Ordre:3"));
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(36.809354,10.175062)).title("Ordre:4"));
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(36.810769,10.172659)).title("Ordre:5"));
             googleMap.setMyLocationEnabled(true);
 
         }
@@ -245,5 +262,15 @@ public class TrajectoireActivity extends AppCompatActivity implements
     public void onProviderDisabled(String provider) {
 
     }
+
+    private BitmapDescriptor bitmapDescriptorFromVector(Context context, int vectorResId) {
+        Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorResId);
+        vectorDrawable.setBounds(0, 0, vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight());
+        Bitmap bitmap = Bitmap.createBitmap(vectorDrawable.getIntrinsicWidth(), vectorDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        vectorDrawable.draw(canvas);
+        return BitmapDescriptorFactory.fromBitmap(bitmap);
+    }
+
 
 }

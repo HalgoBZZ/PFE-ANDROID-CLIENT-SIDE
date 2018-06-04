@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         connexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-                startActivity(new Intent(MainActivity.this, HelpActivity.class));
+                startActivity(new Intent(MainActivity.this, PlanningActivity.class));
+                //startActivity(new Intent(MainActivity.this, TrajectoireActivity.class));
             }
             });
 

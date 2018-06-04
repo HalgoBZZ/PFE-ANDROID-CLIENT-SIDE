@@ -10,22 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/bluebrayfonced">
+        android:background="@color/colorBlueGrayOp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="vertical"
             >
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_marginTop="2dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/logo"
-                app:civ_border_color="#FFFFFF"
-                app:civ_border_width="2dp"/>
 
         </LinearLayout>
         <LinearLayout
@@ -35,8 +26,8 @@
             android:background="@color/colorBlueGrayOp">
             <EditText
                 android:id="@+id/loginsender"
-                android:drawableStart="@drawable/user"
-                android:drawableLeft="@drawable/user"
+                android:drawableStart="@drawable/person"
+                android:drawableLeft="@drawable/person"
                 android:hint="Login"
                 android:layout_marginTop="80dp"
                 android:padding="10dp"

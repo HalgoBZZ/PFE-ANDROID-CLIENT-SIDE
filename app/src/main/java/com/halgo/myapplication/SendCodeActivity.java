@@ -16,6 +16,8 @@ public class SendCodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sendcode);
+        send=(Button)findViewById(R.id.sendcode);
+        back=(Button)findViewById(R.id.backtosend);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

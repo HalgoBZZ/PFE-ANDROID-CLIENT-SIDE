@@ -3,10 +3,11 @@ package com.halgo.myapplication;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class DetailsTourneeActivity extends AppCompatActivity{
+public class MesureActivity extends AppCompatActivity {
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.details_tournee);
+        setContentView(R.layout.mesue);
     }
 }

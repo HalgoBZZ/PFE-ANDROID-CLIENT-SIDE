@@ -8,4 +8,6 @@
     <color name="colorBlueGrayOp">#CFD8DC</color>
     <color name="bluebrayfonced">#90A4AE</color>
     <color name="primaryButton">#03A9F4</color>
+    <color name="title">#222222</color>
+    <color name="year">#999999</color>
 </resources>
