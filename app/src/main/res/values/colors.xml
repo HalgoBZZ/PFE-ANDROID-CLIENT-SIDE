@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="error">#FF0000</color>
     <color name="colorBLGR">#455A64</color>
     <color name="colorBlueGray">#607D8B</color>
     <color name="colorBlueGrayOp">#CFD8DC</color>

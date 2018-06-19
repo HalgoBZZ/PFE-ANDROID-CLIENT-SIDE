@@ -14,7 +14,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +44,74 @@ public class TourneesActivity extends AppCompatActivity implements NavigationVie
     private List<Tournee> tourneeList = new ArrayList<>();
     private RecyclerView recyclerView;
     private TourneeAdapter mAdapter;
+    private String url ="http://10.0.3.2:8080/tournees/byreleveur";
+    private RequestQueue requestQueue;
+    private String[] values;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tournees);
+
+        String login = getIntent().getStringExtra("login");
+        String tourneeurl=url+login;
+        requestQueue = Volley.newRequestQueue(this);
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mAdapter = new TourneeAdapter(tourneeList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+
+        JsonArrayRequest obreq = new JsonArrayRequest(Request.Method.GET, tourneeurl, null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        try {
+                            if(response != null && response.length() > 0) {
+                                values = new String[response.length()];
+
+                                for (int i = 0; i < response.length(); i++) {
+                                    // Get current json object
+                                    JSONObject tournee = response.getJSONObject(i);
+                                    Long idTournee = tournee.getLong("tour_ID");
+                                    String nameTournee = tournee.getString("tour_NAME");
+                                    String secteur=tournee.getString("secteur.sec_NAME");
+                                    Tournee item=new Tournee(idTournee,nameTournee,secteur);
+                                    tourneeList.add(item);
+                                }
+                                mAdapter.notifyDataSetChanged();
+                            }else {
+                                Toast.makeText(getApplicationContext(),
+                                        "Vous n'avez aucun tournée", Toast.LENGTH_LONG)
+                                        .show();
+                            }
+
+                        }catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(),
+                                error.getMessage(), Toast.LENGTH_LONG)
+                                .show();
+                    }
+                }
+        );
+        requestQueue.add(obreq);
+
+
+
+
         tourneeList.add(new Tournee(1L,"Tournee1","Secteur1"));
         tourneeList.add(new Tournee(2L,"Tournee2","Secteur1"));
         tourneeList.add(new Tournee(3L,"Tournee3","Secteur1"));
@@ -47,14 +124,7 @@ public class TourneesActivity extends AppCompatActivity implements NavigationVie
         tourneeList.add(new Tournee(10L,"Tournee10","Secteur4"));
         tourneeList.add(new Tournee(11L,"Tournee11","Secteur5"));
         tourneeList.add(new Tournee(12L,"Tournee12","Secteur6"));
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mAdapter = new TourneeAdapter(tourneeList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(mAdapter);
 
         menu_icon=(ImageView) findViewById(R.id.menu_tour);
         notification_icon=(ImageView)findViewById(R.id.notification_tour);

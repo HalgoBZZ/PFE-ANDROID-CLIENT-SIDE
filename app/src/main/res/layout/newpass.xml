@@ -10,34 +10,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/bluebrayfonced">
+        android:background="@color/colorBlueGrayOp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="vertical"
-            android:background="@color/colorBlueGrayOp">
+            >
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@color/colorBlueGrayOp">
-
-            <TextView
-                android:id="@+id/warn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20dp"
-                android:layout_marginLeft="20dp"
-                android:textColor="@color/error" />
             <EditText
-                android:id="@+id/login"
-                android:drawableStart="@drawable/person"
-                android:drawableLeft="@drawable/person"
-                android:hint="Login"
-                android:layout_marginTop="8dp"
+                android:id="@+id/loginsender"
+                android:drawableStart="@drawable/lock"
+                android:drawableLeft="@drawable/lock"
+                android:hint="Nouveau mot de passe"
+                android:layout_marginTop="80dp"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="20dp"
@@ -48,9 +40,9 @@
                 android:layout_height="wrap_content"
                 />
             <EditText
-                android:id="@+id/password"
-                android:inputType="textPassword"
-                android:hint="Mot de passe"
+                android:id="@+id/emailsender"
+                android:inputType="textEmailAddress"
+                android:hint="Confirmer mot de passe"
                 android:drawableStart="@drawable/lock"
                 android:drawableLeft="@drawable/lock"
                 android:textColorHint="#fff"
@@ -63,27 +55,37 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_height="wrap_content" />
-            <Button
-                android:id="@+id/connexion"
-                android:textColor="#fff"
-                android:background="@color/colorBLGR"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
-                android:text="Connexion"/>
-            <TextView
-                android:id="@+id/mdp_oublie"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:text="Mot de passe oublié?"
-                android:textColor="#000"
-                android:layout_gravity="center"/>
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                >
+                <Button
+                    android:id="@+id/backtologin"
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@color/colorBLGR"
+                    android:text="Retour"
+                    android:textColor="#fff" />
+                <Button
+                    android:id="@+id/send"
+                    android:textColor="#fff"
+                    android:width="145dp"
+                    android:background="@color/colorBLGR"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:text="Envoyer"/>
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
