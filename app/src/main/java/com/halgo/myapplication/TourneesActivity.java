@@ -14,8 +14,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -186,11 +184,14 @@ public class TourneesActivity extends AppCompatActivity implements NavigationVie
         return super.onOptionsItemSelected(item);
     }
 
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        MenuItem tournee=findViewById(R.id.tournee);
+        MenuItem trajectoire=findViewById(R.id.trajectoire);
+        MenuItem planing =findViewById(R.id.planing);
 
-        int id = item.getItemId();
-
+       /* int id = item.getItemId();
         switch (id){
             case R.id.tournee :
                 startActivity(new Intent(TourneesActivity.this, TourneesActivity.class));
@@ -203,8 +204,20 @@ public class TourneesActivity extends AppCompatActivity implements NavigationVie
                 break;
             default:
                 break;
-        }
-
+        }*/
+       if(item==tournee){
+           startActivity(new Intent(TourneesActivity.this, TourneesActivity.class));
+           this.mDrawerlayout.closeDrawer(GravityCompat.START);
+           return true;
+       }else if(item==trajectoire){
+           startActivity(new Intent(TourneesActivity.this, TrajectoireActivity.class));
+           this.mDrawerlayout.closeDrawer(GravityCompat.START);
+           return true;
+       }else if(item==planing){
+           startActivity(new Intent(TourneesActivity.this, PlanningActivity.class));
+           this.mDrawerlayout.closeDrawer(GravityCompat.START);
+           return true;
+       }
         this.mDrawerlayout.closeDrawer(GravityCompat.START);
 
         return true;
