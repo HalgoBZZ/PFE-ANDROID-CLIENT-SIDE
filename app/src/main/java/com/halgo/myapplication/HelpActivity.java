@@ -8,6 +8,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,6 +47,7 @@ public class HelpActivity extends AppCompatActivity implements NavigationView.On
         if(getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
 
 
         notification_icon.setOnClickListener(new View.OnClickListener(){
@@ -103,6 +105,34 @@ public class HelpActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+       /* MenuItem tournee=findViewById(R.id.tournee);
+        MenuItem trajectoire=findViewById(R.id.trajectoire);
+        MenuItem planing =findViewById(R.id.planing);
+        switch (item.getItemId()) {
+            case R.id.tournee: {
+                startActivity(new Intent(HelpActivity.this, TourneesActivity.class));
+                this.mDrawerlayout.closeDrawer(GravityCompat.START);
+                Log.i("you are cliking","tournee");
+                break;
+            }
+            case R.id.trajectoire: {
+                startActivity(new Intent(HelpActivity.this, TrajectoireActivity.class));
+                this.mDrawerlayout.closeDrawer(GravityCompat.START);
+                Log.i("you are cliking","Trajectoire");
+                break;
+            }
+            case R.id.planing: {
+                startActivity(new Intent(HelpActivity.this, PlanningActivity.class));
+                this.mDrawerlayout.closeDrawer(GravityCompat.START);
+                Log.i("you are cliking","Planning");
+                break;
+            }
+            default:{
+            this.mDrawerlayout.closeDrawer(GravityCompat.START);
+            return true;
+            }
+        }*/
+
         switch (item.getItemId()) {
             case R.id.tournee: {
                 startActivity(new Intent(HelpActivity.this, TourneesActivity.class));
@@ -120,17 +150,32 @@ public class HelpActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             default:{
-            this.mDrawerlayout.closeDrawer(GravityCompat.START);
-            return true;
+                this.mDrawerlayout.closeDrawer(GravityCompat.START);
+                return true;
             }
         }
+
+       /* if(item.getTitle()=="Tournées"){
+            startActivity(new Intent(HelpActivity.this, TourneesActivity.class));
+           // this.mDrawerlayout.closeDrawer(GravityCompat.START);
+            return true;
+        }else if(item.getTitle()=="Trajectoire"){
+            startActivity(new Intent(HelpActivity.this, TrajectoireActivity.class));
+            this.mDrawerlayout.closeDrawer(GravityCompat.START);
+            return true;
+        }else if(item.getTitle()=="planing"){
+            startActivity(new Intent(HelpActivity.this, PlanningActivity.class));
+            this.mDrawerlayout.closeDrawer(GravityCompat.START);
+            return true;
+        }*/
         this.mDrawerlayout.closeDrawer(GravityCompat.START);
+
         return true;
+
     }
     @Override
     public void onBackPressed() {
-
-        if (mDrawerlayout.isDrawerOpen(GravityCompat.START)) {
+        if(mDrawerlayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerlayout.closeDrawer(GravityCompat.START);
         }
     }
